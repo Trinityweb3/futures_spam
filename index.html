@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        BTC <span id="btc"></span><br>
+        ETH <span id="eth"></span><br>
+        SOL <span id="sol"></span>
+
+        <script>
+            let ws = new WebSocket("ws://localhost:3000/ws");
+
+            ws.onmessage = e => {
+                let d = JSON.parse(e.data);
+                document.getElementById("btc").textContent = d.btc?.toFixed(2);
+                document.getElementById("eth").textContent = d.eth?.toFixed(2);
+                document.getElementById("sol").textContent = d.sol?.toFixed(2);
+                };
+        </script>
+    </body>
+</html>
