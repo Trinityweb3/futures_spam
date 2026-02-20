@@ -16,7 +16,7 @@ async fn main() {
 
     url.push_str(ticker);
     url.push_str(&url_end);
-    println!("{}", url);
+    println!("Final web socket{}", url);
 
     let (ws_stream, _) = match connect_async(url).await {
         Ok(res) => res,
